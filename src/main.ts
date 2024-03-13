@@ -8,7 +8,8 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 // svg插件需要的配置代碼
 import 'virtual:svg-icons-register'
-//引入自訂義插件物件 :註冊整個項目全局物件
+// 引入自訂義插件物件 :註冊整個項目全局物件
+// 使物件可以直接在項目目錄底下任何位置直接使用，省去頻繁註冊程序
 import globalComponent from '@/components/'
 // 配置element-plus國際化
 // import zhTw from 'element-plus/dist/locale/zh-tw.mjs'
@@ -25,8 +26,6 @@ const app = createApp(App)
 app.use(ElementPlus, {
   // locale: zhTw, //element-plus國際化配置
 })
-
-
 // 安裝自訂義插件
 app.use(globalComponent)
 // 安裝倉庫
