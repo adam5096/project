@@ -26,17 +26,7 @@ app.use(ElementPlus, {
   // locale: zhTw, //element-plus國際化配置
 })
 
-// 測試代碼:測試假接口能否使用
-// import axios from 'axios';
-// // 登錄接口
-// axios({
-//     url: '/api/user/login',
-//     method: 'post',
-//     data: {
-//         username: 'admin',
-//         password: '111111',
-//     }
-// })
+
 // 安裝自訂義插件
 app.use(globalComponent)
 // 安裝倉庫
