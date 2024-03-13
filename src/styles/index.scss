@@ -1,0 +1,18 @@
+// 引入清除預設樣式
+@import './reset.scss';
+
+// 滾動條整體外觀
+::-webkit-scrollbar {
+    width: 10px;
+
+}
+// 滾動條軌道顏色
+::-webkit-scrollbar-track {
+    background: $base-menu-background;
+}
+// 滾動棒顏色
+::-webkit-scrollbar-thumb{
+    width: 10px;
+    background-color: yellowgreen;
+    border-radius: 10px;
+}
