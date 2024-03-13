@@ -7,7 +7,7 @@
     <!-- 左側麵包屑 -->
     <el-breadcrumb separator-icon="ArrowRight">
         <!-- 麵包屑動態展示路由與標題 -->
-        <!-- :to="item.path"開啟點擊麵包屑可以跳轉指定路由（展示指定組件） -->
+        <!-- :to="item.path"開啟點擊麵包屑可以跳轉指定路由（展示指定元件） -->
         <el-breadcrumb-item v-for="(item, index) in $route.matched" :key="index" v-show="item.meta.title" :to="item.path">
             <!-- 圖標 -->
             <el-icon >

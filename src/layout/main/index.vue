@@ -13,11 +13,11 @@ import { watch, ref, nextTick } from 'vue'
 import useLayOutSettingStore from '@/store/modules/setting.ts'
 let layOutSettingStore = useLayOutSettingStore()
 
-// 控制當前組件是否銷毀、重建
+// 控制當前元件是否銷毀、重建
 let flag = ref(true)
 // 監聽倉庫內部數據是否發生變化，說明使用者點擊過刷新按鈕
 watch(() => layOutSettingStore.refsh, () => {
-  // 點擊刷新按鈕，路由組件銷毀
+  // 點擊刷新按鈕，路由元件銷毀
   flag.value = false
   // nextTick在響應式數據變化後，取得更新後的DOM
   nextTick(() => {

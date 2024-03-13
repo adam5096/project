@@ -1,4 +1,4 @@
-// 小倉庫:關於layout組件相關配置倉庫
+// 小倉庫:關於layout元件相關配置倉庫
 import { defineStore } from 'pinia'
 
 const useLayOutSettingStore = defineStore('SettingStore' /*倉庫名字*/, {

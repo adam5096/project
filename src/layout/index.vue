@@ -5,9 +5,9 @@
             <!-- 左側導航頂端logo -->
             <Logo />
             <!-- 展示左側導航區 -->
-            <!-- 滾動組件 -->
+            <!-- 滾動元件 -->
             <el-scrollbar class="scrollbar" >
-                <!-- 選單組件 -->
+                <!-- 選單元件 -->
                 <el-menu :collapse="LayOutSettingStore.fold ? true : false" :default-active="$route.path" background-color="#001529" text-color="white">
                     <!-- 根據路由動態生成選單 -->
                     <Menu :menuList="userStore.menuRoutes"></Menu>
@@ -16,13 +16,12 @@
         </div>
         <!-- 頂部導航 -->
         <div class="layout_tabbar" :class="{ fold: LayOutSettingStore.fold ? true : false }">
-            <!-- layout組件的頂部導航Tabbar -->
+            <!-- layout元件的頂部導航Tabbar -->
             <Tabbar />
         </div>
         <!-- 內容展示區 -->
         <div class="layout_main" :class="{ fold: LayOutSettingStore.fold ? true : false }">
             <!-- <router-view></router-view> -->
-
             <Main></Main>
         </div>
     </div>
@@ -36,7 +35,7 @@ import Logo from './logo/index.vue'
 import Menu from './menu/index.vue'
 // 引入主頁右側內容展示區元件
 import Main from './main/index.vue'
-// 引入主頁頂部組件
+// 引入主頁頂部元件
 import Tabbar from './tabbar/index.vue'
 // 取得使用者相關的小倉庫
 import useUserStore from '@/store/modules/user'

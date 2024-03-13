@@ -8,7 +8,7 @@
 </template>
     
 <script setup lang='ts'>
-// 接收父組件傳遞過來的與圖標相關的參數
+// 接收父元件傳遞過來的與圖標相關的參數
 defineProps({
     // xlink:href屬性值的前綴
     prefix: {
@@ -17,17 +17,17 @@ defineProps({
     },
     // 提供使用的圖標名字
     name: String,
-    // 接收父組件傳遞的圖標顏色
+    // 接收父元件傳遞的圖標顏色
     color: {
         type: String,
         default: ''
     },
-    // 接收父組件傳遞過來的圖標寬度
+    // 接收父元件傳遞過來的圖標寬度
     width: {
         type: String,
         default: '16px'
     },
-    // 接收父組件傳遞過來的圖標高度
+    // 接收父元件傳遞過來的圖標高度
     height: {
         type: String,
         default: '16px'

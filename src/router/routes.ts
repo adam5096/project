@@ -74,7 +74,7 @@ export const asyncRoute = [
       hidden: false,
       icon: 'Lock',
     },
-    // 點擊麵包屑中權限管理重定向到/acl/user，展示user組件，不展示layout組件
+    // 點擊麵包屑中權限管理重定向到/acl/user，展示user元件，不展示layout元件
     redirect: '/acl/user',
     children: [
       {
@@ -130,7 +130,7 @@ export const asyncRoute = [
         name: 'Trademark',
         meta: {
           title: '品牌管理', //選單標題
-          //若無看見hidden屬性(不存在)，則layout組件讀取不到hidden，後續處理為undefined(hidden:undefined相當於false)
+          //若無看見hidden屬性(不存在)，則layout元件讀取不到hidden，後續處理為undefined(hidden:undefined相當於false)
           icon: 'ShoppingCartFull',
         },
       },

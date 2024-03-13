@@ -1,5 +1,5 @@
 <template>
-    <!-- layout組件 選單展示邏輯 開始-->
+    <!-- layout元件 選單展示邏輯 開始-->
     <template v-for="(item) in menuList" :key="item.path">
         <!-- v-if='!item.children -->
         <!-- 選項路由層級判斷 如果選項沒有子路由(只展示1級路由) -->
@@ -30,7 +30,7 @@
             </el-menu-item>
         </template>
 
-        <!-- 選項路由層級判斷 如果選項 有2個或以上子路由,遞迴傳值組件寫法(子組件傳值給子組件自身) -->
+        <!-- 選項路由層級判斷 如果選項 有2個或以上子路由,遞迴傳值元件寫法(子元件傳值給子元件自身) -->
         <el-sub-menu :index="item.path" v-if="item.children && item.children.length > 1">
             <template #title>
                 <!-- 漏加累了嗎? -->
@@ -39,18 +39,18 @@
                 </el-icon>
                 <span>{{ item.meta.title }}</span>
             </template>
-            <!-- 把父組件layout傳遞過來的全部路由陣列menuList，(遞迴傳值)從下面Menu組件標籤位置再次傳給Menu組件自身!! -->
+            <!-- 把父元件layout傳遞過來的全部路由陣列menuList，(遞迴傳值)從下面Menu元件標籤位置再次傳給Menu元件自身!! -->
             <Menu :menuList="item.children"></Menu>
         </el-sub-menu>
     </template>
-    <!-- layout組件 選單展示邏輯 結束-->
+    <!-- layout元件 選單展示邏輯 結束-->
 </template>
     
 <script setup lang='ts'>
 import { useRouter } from 'vue-router'
-// 取得父組件layout傳遞過來的全部路由陣列
+// 取得父元件layout傳遞過來的全部路由陣列
 defineProps(['menuList'])
-// 取得路由器物件
+// 取得路由器物件(實例)
 let $router = useRouter()
 // 點擊選項後跳轉路由
 const goRoute = (vc: any) => {
@@ -61,7 +61,7 @@ const goRoute = (vc: any) => {
 
 <script lang='ts'>
 export default {
-    // 以vue2組件命名語法為遞迴組件命名Menu後才能使用(否則會報錯誤)
+    // 以vue2元件命名語法為遞迴元件命名Menu後才能使用(否則會報錯誤)
     name: 'Menu'
 }
 </script>    

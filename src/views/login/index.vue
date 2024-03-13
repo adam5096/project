@@ -32,7 +32,7 @@
     </div>
 </template>
 <script setup lang="ts">
-// 引入圖標組件
+// 引入圖標元件
 import { User, Lock } from '@element-plus/icons-vue';
 import { reactive, ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router'
@@ -43,7 +43,7 @@ import { getTime } from '@/utils/time'
 import useUserStore from '@/store/modules/user'
 // import { errorMessages } from 'vue/compiler-sfc';
 let useStore = useUserStore()
-// 取得el-form組件
+// 取得el-form元件
 let loginFormss = ref()
 
 // 取得路由器物件
