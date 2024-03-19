@@ -4,7 +4,7 @@
         <p>{{ setting.title }}</p>
     </div>
 </template>
-    
+
 <script setup lang='ts'>
 // 引入設定標題與logo配置文件
 import setting from '@/setting'
@@ -34,4 +34,3 @@ export default {
     }
 }
 </style>
-

@@ -1,4 +1,4 @@
-<template >
+<template>
     <el-card>
         <div class="box">
             <img :src="userStore.avatar" alt="用戶頭像" class="avatar">
@@ -26,7 +26,6 @@ let userStore = useUserStore()
 
     .avatar {
         width: 100px;
-        ;
         height: 100px;
         border-radius: 50%;
     }
@@ -46,7 +45,8 @@ let userStore = useUserStore()
         }
     }
 }
-.bottoms{
+
+.bottoms {
     margin-top: 10px;
     display: flex;
     justify-content: center;

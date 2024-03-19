@@ -1,14 +1,15 @@
 <template>
     <div class="layout_container">
         <!-- 左側導航 -->
-        <div class="layout_slider" >
+        <div class="layout_slider">
             <!-- 左側導航頂端logo -->
             <Logo />
             <!-- 展示左側導航區 -->
             <!-- 滾動元件 -->
-            <el-scrollbar class="scrollbar" >
+            <el-scrollbar class="scrollbar">
                 <!-- 選單元件 -->
-                <el-menu :collapse="LayOutSettingStore.fold ? true : false" :default-active="$route.path" background-color="#001529" text-color="white">
+                <el-menu :collapse="LayOutSettingStore.fold ? true : false" :default-active="$route.path"
+                    background-color="#001529" text-color="white">
                     <!-- 根據路由動態生成選單 -->
                     <Menu :menuList="userStore.menuRoutes"></Menu>
                 </el-menu>
@@ -49,7 +50,7 @@ let LayOutSettingStore = useLayOutSettingStore()
 let $route = useRoute()
 
 
-</script> 
+</script>
 <script lang="ts">
 export default {
     name: 'Layout'
@@ -76,7 +77,7 @@ export default {
             }
         }
 
-        
+
     }
 
     .layout_tabbar {
@@ -87,7 +88,7 @@ export default {
         top: 0px;
         left: $base-menu-width;
         transition: all 0.3s;
-        
+
         &.fold {
             width: calc(100vw - $base-menu-min-width);
             left: $base-menu-min-width;
@@ -111,4 +112,89 @@ export default {
 
     }
 }
+
+// @media screen and (max-width: 768px) {
+//     .layout_slider {
+//         width: 100%;
+//     }
+
+//     .layout_tabbar {
+//         display: none;
+//     }
+
+//     .layout_main {
+//         width: 100%;
+//         top: 0px;
+//     }
+// }
+
+// @media screen and (min-width: 768px) and (max-width: 1024px) {
+//     .layout_slider {
+//         width: 50%;
+//     }
+
+//     .layout_tabbar {
+//         width: 50%;
+//     }
+
+//     .layout_main {
+//         width: 50%;
+//     }
+// }
+
+// @media screen and (min-width: 1024px) {
+//     .layout_slider {
+//         width: 20%;
+//     }
+
+//     .layout_tabbar {
+//         width: 80%;
+//     }
+
+//     .layout_main {
+//         width: 80%;
+//     }
+// }
+
+// // ===================
+
+// @media screen and (max-width: 768px) {
+//     .layout_main {
+//         width: 100%;
+//         padding: 10px;
+//     }
+// }
+
+// @media screen and (min-width: 768px) and (max-width: 1024px) {
+//     .layout_main {
+//         width: 50%;
+//         padding: 20px;
+//     }
+// }
+
+// @media screen and (min-width: 1024px) {
+//     .layout_main {
+//         width: 80%;
+//         padding: 40px;
+//     }
+// }
+
+// // ==================
+// @media screen and (max-width: 768px) {
+//     html {
+//         font-size: 16px;
+//     }
+// }
+
+// @media screen and (min-width: 768px) and (max-width: 1024px) {
+//     html {
+//         font-size: 18px;
+//     }
+// }
+
+// @media screen and (min-width: 1024px) {
+//     html {
+//         font-size: 20px;
+//     }
+// }
 </style>

@@ -130,7 +130,6 @@ blockquote:before, blockquote:after,
 q:before,
 q:after {
   content: "";
-  content: none;
 }
 
 sub,
@@ -169,7 +168,6 @@ select {
   border-radius: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
-  
 }
 
 select::-ms-expand {
