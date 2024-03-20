@@ -16,3 +16,10 @@ $base-menu-logo-height:50px;
 
 // 主頁左側導航頁logo右側文字大小
 $base-logo-title-fontSize:20px;
+
+
+// RWD 當視口尺寸是手機或平板時
+// 主頁左側導航頁寬度
+$base-menu-rwd-width: 100vw;
+$base-menu-rwd-height: 100vh;
+

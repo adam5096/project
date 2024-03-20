@@ -60,14 +60,14 @@ export default {
 .layout_container {
     width: 100%;
     height: 100vh;
-
+    // 左側選單區
     .layout_slider {
         color: white;
         width: $base-menu-width;
         height: 100vh;
         background: $base-menu-background;
         transition: all 0.3s;
-
+        // 滾動條
         .scrollbar {
             width: 100%;
             height: calc(100vh - $base-menu-logo-height);
@@ -79,7 +79,7 @@ export default {
 
 
     }
-
+    // 上側導航區
     .layout_tabbar {
         position: fixed;
         width: calc(100% - $base-menu-width);
@@ -113,88 +113,70 @@ export default {
     }
 }
 
-// @media screen and (max-width: 768px) {
-//     .layout_slider {
-//         width: 100%;
-//     }
+// RWD viewport在平板或以下時
+@media screen and (max-width: 768px) {
+    .layout_container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+    
+            // 左側選單區
+            .layout_slider {
+                color: white;
+                width: $base-menu-rwd-width;
+                height: 100%;
+                background: $base-menu-background;
+                transition: all 0.3s;
+                // flex: 1;
+                // 滾動條
+                .scrollbar {
+                    width: 100%;
+                    height: calc(100vh - $base-menu-logo-height);
+    
+                    .el-menu {
+                        border-right: none;
+                    }
+                }
+    
+    
+            }
+    
+            // 上側導航區
+            .layout_tabbar {
+                position: relative;
+                width: calc(100% - $base-menu-width);
+                height: $base-tabbar-height;
+                // background-color: deepskyblue;
+                // top: 0px;
+                left: $base-menu-width;
+                transition: all 0.3s;
+    
+                &.fold {
+                    width: calc(100vw - $base-menu-min-width);
+                    left: $base-menu-min-width;
+                }
+            }
+    
+            .layout_main {
+                position: relative;
+                width: calc(100% - $base-menu-width);
+                height: calc(100vh - $base-tabbar-height);
+                // left: $base-menu-width;
+                // top: $base-tabbar-height;
+                padding: 20px;
+                overflow: auto;
+                transition: all 0.3s;
+    
+                &.fold {
+                    width: calc(100vw - $base-menu-min-width);
+                    left: $base-menu-min-width;
+                }
+    
+            }
+        }
+}
 
-//     .layout_tabbar {
-//         display: none;
-//     }
 
-//     .layout_main {
-//         width: 100%;
-//         top: 0px;
-//     }
-// }
 
-// @media screen and (min-width: 768px) and (max-width: 1024px) {
-//     .layout_slider {
-//         width: 50%;
-//     }
-
-//     .layout_tabbar {
-//         width: 50%;
-//     }
-
-//     .layout_main {
-//         width: 50%;
-//     }
-// }
-
-// @media screen and (min-width: 1024px) {
-//     .layout_slider {
-//         width: 20%;
-//     }
-
-//     .layout_tabbar {
-//         width: 80%;
-//     }
-
-//     .layout_main {
-//         width: 80%;
-//     }
-// }
-
-// // ===================
-
-// @media screen and (max-width: 768px) {
-//     .layout_main {
-//         width: 100%;
-//         padding: 10px;
-//     }
-// }
-
-// @media screen and (min-width: 768px) and (max-width: 1024px) {
-//     .layout_main {
-//         width: 50%;
-//         padding: 20px;
-//     }
-// }
-
-// @media screen and (min-width: 1024px) {
-//     .layout_main {
-//         width: 80%;
-//         padding: 40px;
-//     }
-// }
-
-// // ==================
-// @media screen and (max-width: 768px) {
-//     html {
-//         font-size: 16px;
-//     }
-// }
-
-// @media screen and (min-width: 768px) and (max-width: 1024px) {
-//     html {
-//         font-size: 18px;
-//     }
-// }
-
-// @media screen and (min-width: 1024px) {
-//     html {
-//         font-size: 20px;
-//     }
-// }
 </style>
