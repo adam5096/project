@@ -114,25 +114,28 @@ export default {
 }
 
 // RWD viewport在平板或以下時
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .layout_container {
             width: 100%;
-            height: 100vh;
+            // height: 100vh;
+            height: 100%;
             display: flex;
             flex-direction: column;
     
             // 左側選單區
             .layout_slider {
                 color: white;
-                width: $base-menu-rwd-width;
+                // width: $base-menu-width;
+                width: 100%;
                 height: 100%;
                 background: $base-menu-background;
-                transition: all 0.3s;
+                transition: all 1s;
                 // flex: 1;
-                // 滾動條
+                
                 .scrollbar {
                     width: 100%;
-                    height: calc(100vh - $base-menu-logo-height);
+                    // height: calc(100vh - $base-menu-logo-height);
+                    height: 100%;
     
                     .el-menu {
                         border-right: none;
@@ -145,32 +148,42 @@ export default {
             // 上側導航區
             .layout_tabbar {
                 position: relative;
-                width: calc(100% - $base-menu-width);
-                height: $base-tabbar-height;
+                // width: calc(100% - $base-menu-width);
+                width: 100%;
+                // height: $base-tabbar-height;
+                height: 100%;
                 // background-color: deepskyblue;
                 // top: 0px;
-                left: $base-menu-width;
-                transition: all 0.3s;
+                // left: $base-menu-width;
+                left: 0px;
+                transition: all 1s;
     
                 &.fold {
-                    width: calc(100vw - $base-menu-min-width);
-                    left: $base-menu-min-width;
+                    // width: calc(100vw - $base-menu-min-width);
+                    width: 100%;
+                    // left: $base-menu-min-width;
+                    left: 0px;
                 }
             }
     
             .layout_main {
                 position: relative;
-                width: calc(100% - $base-menu-width);
-                height: calc(100vh - $base-tabbar-height);
+                // width: calc(100% - $base-menu-width);
+                width: 100%;
+                // height: calc(100vh - $base-tabbar-height);
+                height: 100%;
                 // left: $base-menu-width;
+                left: 0px;
                 // top: $base-tabbar-height;
                 padding: 20px;
                 overflow: auto;
-                transition: all 0.3s;
+                transition: all 1s;
     
                 &.fold {
-                    width: calc(100vw - $base-menu-min-width);
-                    left: $base-menu-min-width;
+                    // width: calc(100vw - $base-menu-min-width);
+                    width: 100%;
+                    // left: $base-menu-min-width;
+                    left: 0px;
                 }
     
             }

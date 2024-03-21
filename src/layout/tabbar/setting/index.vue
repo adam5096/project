@@ -17,7 +17,7 @@
             <el-button size="large" icon="Setting" circle></el-button>
         </template>
     </el-popover>
-    <img :src="userStore.avatar" style="width:24px;height:24px;margin: 0px 10px;border-radius: 50%;">
+    <img :src="userStore.avatar" style="width:40px;height:40px;margin: 0px 10px;border-radius: 50%;">
     <!-- 下拉選單 -->
     <el-dropdown>
         <span class="el-dropdown-link">
