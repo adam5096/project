@@ -15,12 +15,12 @@
                 </el-menu>
             </el-scrollbar>
         </div>
-        <!-- 頂部導航 -->
+        <!-- 頂部導航-右上 -->
         <div class="layout_tabbar" :class="{ fold: LayOutSettingStore.fold ? true : false }">
             <!-- layout元件的頂部導航Tabbar -->
             <Tabbar />
         </div>
-        <!-- 內容展示區 -->
+        <!-- 內容展示區-右下 -->
         <div class="layout_main" :class="{ fold: LayOutSettingStore.fold ? true : false }">
             <!-- <router-view></router-view> -->
             <Main></Main>
@@ -60,6 +60,7 @@ export default {
 .layout_container {
     width: 100%;
     height: 100vh;
+
     // 左側選單區
     .layout_slider {
         color: white;
@@ -67,6 +68,7 @@ export default {
         height: 100vh;
         background: $base-menu-background;
         transition: all 0.3s;
+
         // 滾動條
         .scrollbar {
             width: 100%;
@@ -79,6 +81,7 @@ export default {
 
 
     }
+
     // 上側導航區
     .layout_tabbar {
         position: fixed;
@@ -114,82 +117,82 @@ export default {
 }
 
 // RWD viewport在平板或以下時
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 996px) {
     .layout_container {
+        width: 100%;
+        // height: 100vh;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        // 左側選單區
+        .layout_slider {
+            color: white;
+            // width: $base-menu-width;
             width: 100%;
-            // height: 100vh;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-    
-            // 左側選單區
-            .layout_slider {
-                color: white;
-                // width: $base-menu-width;
+            background: $base-menu-background;
+            transition: all 1s;
+            // flex: 1;
+
+            .scrollbar {
                 width: 100%;
+                // height: calc(100vh - $base-menu-logo-height);
                 height: 100%;
-                background: $base-menu-background;
-                transition: all 1s;
-                // flex: 1;
-                
-                .scrollbar {
-                    width: 100%;
-                    // height: calc(100vh - $base-menu-logo-height);
-                    height: 100%;
-    
-                    .el-menu {
-                        border-right: none;
-                    }
-                }
-    
-    
-            }
-    
-            // 上側導航區
-            .layout_tabbar {
-                position: relative;
-                // width: calc(100% - $base-menu-width);
-                width: 100%;
-                // height: $base-tabbar-height;
-                height: 100%;
-                // background-color: deepskyblue;
-                // top: 0px;
-                // left: $base-menu-width;
-                left: 0px;
-                transition: all 1s;
-    
-                &.fold {
-                    // width: calc(100vw - $base-menu-min-width);
-                    width: 100%;
-                    // left: $base-menu-min-width;
-                    left: 0px;
+                display: flex;
+                flex-direction: row;
+                .el-menu {
+                    border-right: none;
+                    margin-right: -1px;
                 }
             }
-    
-            .layout_main {
-                position: relative;
-                // width: calc(100% - $base-menu-width);
+
+
+        }
+
+        // 上側導航區
+        .layout_tabbar {
+            position: relative;
+            // width: calc(100% - $base-menu-width);
+            width: 100%;
+            // height: $base-tabbar-height;
+            height: 100%;
+            // background-color: deepskyblue;
+            // top: 0px;
+            // left: $base-menu-width;
+            left: 0px;
+            transition: all 1s;
+            margin-top: 20px;
+
+            &.fold {
+                // width: calc(100vw - $base-menu-min-width);
                 width: 100%;
-                // height: calc(100vh - $base-tabbar-height);
-                height: 100%;
-                // left: $base-menu-width;
+                // left: $base-menu-min-width;
                 left: 0px;
-                // top: $base-tabbar-height;
-                padding: 20px;
-                overflow: auto;
-                transition: all 1s;
-    
-                &.fold {
-                    // width: calc(100vw - $base-menu-min-width);
-                    width: 100%;
-                    // left: $base-menu-min-width;
-                    left: 0px;
-                }
-    
             }
         }
+
+        .layout_main {
+            position: relative;
+            // width: calc(100% - $base-menu-width);
+            width: 100%;
+            // height: calc(100vh - $base-tabbar-height);
+            height: 100%;
+            // left: $base-menu-width;
+            left: 0px;
+            // top: $base-tabbar-height;
+            padding: 20px;
+            overflow: auto;
+            transition: all 1s;
+
+            &.fold {
+                // width: calc(100vw - $base-menu-min-width);
+                width: 100%;
+                // left: $base-menu-min-width;
+                left: 0px;
+            }
+
+        }
+    }
 }
-
-
-
 </style>
