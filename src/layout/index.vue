@@ -252,9 +252,7 @@ export default {
             border-radius: 50%;
             margin: 0px 10px;
             align-items: center;
-            // position: absolute;
-            // top: 1rem;
-            // margin-top: -0.125rem;
+            transition: all 1s;
         }
 
     }
