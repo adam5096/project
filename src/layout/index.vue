@@ -15,32 +15,17 @@
                         <Menu :menuList="userStore.menuRoutes"></Menu>
                     </el-menu>
                 </div>
-
-
                 <!-- RWD選單區 -->
                 <section class="mmenu">
                     <!-- 漢堡圖標 -->
-                    <div>
-                        <button id="hamburger-button" class=" ham" v-on:click="switchMenu">
-                            <!-- &#9776; -->
-                            <div class="ham-dash">
-                            </div>
-                        </button>
-                        <button id="hamburger-button" class=" ham" style="margin-left: 5px;" v-on:click="switchMenu">
-                            <!-- &#9776; -->
-                            <div class="ham-dash">
-                            </div>
-                        </button>
-                        <button id="hamburger-button" class=" ham" style="margin-left: 5px;" v-on:click="switchMenu">
-                            <!-- &#9776; -->
-                            <div class="ham-dash">
-                            </div>
-                        </button>
-                    </div>
-
+                    <button id="hamburger-button" class="ham" v-on:click="switchMenu">
+                        <!-- &#9776; -->
+                        <div class="ham-dash"></div>
+                        <div class="ham-dash"></div>
+                        <div class="ham-dash"></div>
+                    </button>
                     <!-- RWD選單導航區 -->
                 </section>
-
             </el-scrollbar>
         </div>
         <!-- 頂部導航-右上 -->
@@ -69,7 +54,7 @@ import Tabbar from './tabbar/index.vue'
 // 取得使用者相關的小倉庫
 import useUserStore from '@/store/modules/user'
 import useLayOutSettingStore from '@/store/modules/setting.ts'
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 let userStore = useUserStore()
 // 取得layout配置相關的倉庫
 let LayOutSettingStore = useLayOutSettingStore()
@@ -80,10 +65,9 @@ let elmenu = ref()
 // flag參數控制選單DOM節點展示與隱藏
 let isShow = ref(true)
 const switchMenu = () => {
-    // console.log('mmenu', mmenu);
-    console.log('elmenu', elmenu);
+    // console.log('elmenu', elmenu);
     isShow.value = !isShow.value
-    isShow.value ? elmenu.value.style.display = 'block' : elmenu.value.style.display = 'none'
+    isShow.value ? elmenu.value.style.display = 'none' : elmenu.value.style.display = 'block'
 }
 
 </script>
@@ -173,7 +157,7 @@ export default {
 
             .scrollbar {
                 width: 100%;
-                // height: calc(100vh - $base-menu-logo-height);
+                // height: calc(100vh - $base-menu-logo-rwd-height);
                 height: 100%;
 
                 .elmenu {
@@ -235,34 +219,45 @@ export default {
 .mmenu {
     // background-color: yellow;
     max-width: 56rem;
-    height: 100%;
-    margin: 0px auto;
+    height: 100px;
+    // margin: 0px auto;
     padding: 1rem;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    // justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
+    transition: all 1s;
 
-    @media only screen and (min-width: 996px) {
-
-        .ham {
-            // font-size: 1.875rem;
-            // line-height: 2.25rem;
+    .ham {
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        // margin: 0px auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: none;
+        cursor: pointer;
+        @media only screen and (min-width: 996px) {
+            transition: all 1s;
             display: none;
-            cursor: pointer;
-            position: relative;
-
-            .ham-dash {
-                background-color: white;
-                width: 16px;
-                height: 16px;
-                border-radius: 50%;
-                // position: absolute;
-                // top: 1rem;
-                // margin-top: -0.125rem;
-            }
-
+        }
+        .ham-dash {
+            background-color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin: 0px 10px;
+            align-items: center;
+            // position: absolute;
+            // top: 1rem;
+            // margin-top: -0.125rem;
         }
 
     }
+
 }
 </style>
