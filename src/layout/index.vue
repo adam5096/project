@@ -8,11 +8,39 @@
             <!-- 滾動元件 -->
             <el-scrollbar class="scrollbar">
                 <!-- 選單元件 -->
-                <el-menu :collapse="LayOutSettingStore.fold ? true : false" :default-active="$route.path"
-                    background-color="#001529" text-color="white">
-                    <!-- 根據路由動態生成選單 -->
-                    <Menu :menuList="userStore.menuRoutes"></Menu>
-                </el-menu>
+                <div class="elmenu" ref="elmenu">
+                    <el-menu :collapse="LayOutSettingStore.fold ? true : false" :default-active="$route.path"
+                        background-color="#001529" text-color="white">
+                        <!-- 根據路由動態生成選單 -->
+                        <Menu :menuList="userStore.menuRoutes"></Menu>
+                    </el-menu>
+                </div>
+
+
+                <!-- RWD選單區 -->
+                <section class="mmenu">
+                    <!-- 漢堡圖標 -->
+                    <div>
+                        <button id="hamburger-button" class=" ham" v-on:click="switchMenu">
+                            <!-- &#9776; -->
+                            <div class="ham-dash">
+                            </div>
+                        </button>
+                        <button id="hamburger-button" class=" ham" style="margin-left: 5px;" v-on:click="switchMenu">
+                            <!-- &#9776; -->
+                            <div class="ham-dash">
+                            </div>
+                        </button>
+                        <button id="hamburger-button" class=" ham" style="margin-left: 5px;" v-on:click="switchMenu">
+                            <!-- &#9776; -->
+                            <div class="ham-dash">
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- RWD選單導航區 -->
+                </section>
+
             </el-scrollbar>
         </div>
         <!-- 頂部導航-右上 -->
@@ -41,14 +69,22 @@ import Tabbar from './tabbar/index.vue'
 // 取得使用者相關的小倉庫
 import useUserStore from '@/store/modules/user'
 import useLayOutSettingStore from '@/store/modules/setting.ts'
-
+import { ref, onMounted } from 'vue'
 let userStore = useUserStore()
 // 取得layout配置相關的倉庫
 let LayOutSettingStore = useLayOutSettingStore()
-
 // 取得路由物件
 let $route = useRoute()
-
+// 取得選單DOM節點展示與隱藏
+let elmenu = ref()
+// flag參數控制選單DOM節點展示與隱藏
+let isShow = ref(true)
+const switchMenu = () => {
+    // console.log('mmenu', mmenu);
+    console.log('elmenu', elmenu);
+    isShow.value = !isShow.value
+    isShow.value ? elmenu.value.style.display = 'block' : elmenu.value.style.display = 'none'
+}
 
 </script>
 <script lang="ts">
@@ -139,15 +175,15 @@ export default {
                 width: 100%;
                 // height: calc(100vh - $base-menu-logo-height);
                 height: 100%;
-                display: flex;
-                flex-direction: row;
-                .el-menu {
+
+                .elmenu {
                     border-right: none;
                     margin-right: -1px;
+                    display: none;
                 }
+
+
             }
-
-
         }
 
         // 上側導航區
@@ -182,7 +218,7 @@ export default {
             left: 0px;
             // top: $base-tabbar-height;
             padding: 20px;
-            overflow: auto;
+            // overflow: auto;
             transition: all 1s;
 
             &.fold {
@@ -193,6 +229,40 @@ export default {
             }
 
         }
+    }
+}
+
+.mmenu {
+    // background-color: yellow;
+    max-width: 56rem;
+    height: 100%;
+    margin: 0px auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media only screen and (min-width: 996px) {
+
+        .ham {
+            // font-size: 1.875rem;
+            // line-height: 2.25rem;
+            display: none;
+            cursor: pointer;
+            position: relative;
+
+            .ham-dash {
+                background-color: white;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                // position: absolute;
+                // top: 1rem;
+                // margin-top: -0.125rem;
+            }
+
+        }
+
     }
 }
 </style>
