@@ -140,7 +140,6 @@ export default {
 @media only screen and (max-width: 996px) {
     .layout_container {
         width: 100%;
-        // height: 100vh;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -148,67 +147,49 @@ export default {
         // 左側選單區
         .layout_slider {
             color: white;
-            // width: $base-menu-width;
             width: 100%;
             height: 100%;
             background: $base-menu-background;
             transition: all 1s;
-            // flex: 1;
 
             .scrollbar {
                 width: 100%;
-                // height: calc(100vh - $base-menu-logo-rwd-height);
                 height: 100%;
 
                 .elmenu {
                     border-right: none;
                     margin-right: -1px;
                     display: none;
+                    transition: all 1s;
                 }
-
-
             }
         }
 
         // 上側導航區
         .layout_tabbar {
             position: relative;
-            // width: calc(100% - $base-menu-width);
             width: 100%;
-            // height: $base-tabbar-height;
             height: 100%;
-            // background-color: deepskyblue;
-            // top: 0px;
-            // left: $base-menu-width;
             left: 0px;
             transition: all 1s;
             margin-top: 20px;
 
             &.fold {
-                // width: calc(100vw - $base-menu-min-width);
                 width: 100%;
-                // left: $base-menu-min-width;
                 left: 0px;
             }
         }
 
         .layout_main {
             position: relative;
-            // width: calc(100% - $base-menu-width);
             width: 100%;
-            // height: calc(100vh - $base-tabbar-height);
             height: 100%;
-            // left: $base-menu-width;
             left: 0px;
-            // top: $base-tabbar-height;
             padding: 20px;
-            // overflow: auto;
             transition: all 1s;
 
             &.fold {
-                // width: calc(100vw - $base-menu-min-width);
                 width: 100%;
-                // left: $base-menu-min-width;
                 left: 0px;
             }
 
@@ -219,14 +200,14 @@ export default {
 .mmenu {
     // background-color: yellow;
     max-width: 56rem;
-    height: 100px;
-    // margin: 0px auto;
+    height: 100%;
     padding: 1rem;
     display: flex;
     flex-direction: row;
-    // justify-content: center;
+    // 彈性單元當前主軸對齊
+    justify-content: center;
+    // 彈性單元當前側軸對齊
     align-items: center;
-    margin-bottom: 20px;
     transition: all 1s;
 
     .ham {
@@ -235,26 +216,27 @@ export default {
         height: 100%;
         // margin: 0px auto;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: start;
         padding: 5px;
         border: none;
         cursor: pointer;
+
+        // 在視口寬度996px及以上時，漢堡icon隱藏
         @media only screen and (min-width: 996px) {
             transition: all 1s;
             display: none;
         }
+
         .ham-dash {
             background-color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            margin: 0px 10px;
-            align-items: center;
+            width: 30px;
+            height: 6px;
+            border-radius: 10px;
+            margin: 3px 15px;
             transition: all 1s;
         }
-
     }
 
 }
