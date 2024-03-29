@@ -20,9 +20,9 @@
                     <!-- 漢堡圖標 -->
                     <button id="hamburger-button" class="ham" v-on:click="switchMenu">
                         <!-- &#9776; -->
-                        <div class="ham-dash"></div>
-                        <div class="ham-dash"></div>
-                        <div class="ham-dash"></div>
+                        <div ref="ham_dash_1" class="ham-dash"></div>
+                        <div ref="ham_dash_2" class="ham-dash"></div>
+                        <div ref="ham_dash_3" class="ham-dash"></div>
                     </button>
                     <!-- RWD選單導航區 -->
                 </section>
@@ -62,12 +62,24 @@ let LayOutSettingStore = useLayOutSettingStore()
 let $route = useRoute()
 // 取得選單DOM節點展示與隱藏
 let elmenu = ref()
-// flag參數控制選單DOM節點展示與隱藏
+// flag參數控制選單elmenu節點的展示與隱藏
 let isShow = ref(true)
+// 取得漢堡icon節點
+let ham_dash_1 = ref()
+let ham_dash_2 = ref()
+let ham_dash_3 = ref()
+
 const switchMenu = () => {
     // console.log('elmenu', elmenu);
     isShow.value = !isShow.value
     isShow.value ? elmenu.value.style.display = 'none' : elmenu.value.style.display = 'block'
+    ham_dash_1.value.classList.toggle('ham-dash-slash')
+    ham_dash_2.value.classList.toggle('ham-dash-middle')
+    ham_dash_3.value.classList.toggle('ham-dash-rev-slash')
+
+    // console.log('ham_dash_1', ham_dash_1);
+    // console.log('ham_dash_3', ham_dash_3.value);
+
 }
 
 </script>
@@ -237,7 +249,19 @@ export default {
             margin: 3px 15px;
             transition: all 1s;
         }
-    }
 
+        .ham-dash-slash {
+            transform: translateY(6px) rotateZ(405deg);
+        }
+
+        .ham-dash-middle{
+            display: none;
+        }
+
+        .ham-dash-rev-slash {
+            transform: translateY(-6px) rotateZ(-405deg);
+        }
+
+    }
 }
 </style>
