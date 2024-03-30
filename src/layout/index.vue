@@ -3,7 +3,7 @@
         <!-- 左側導航 -->
         <div class="layout_slider">
             <!-- 左側導航頂端logo -->
-            <Logo />
+            <Logo :showMenu="showMenu"></Logo>
             <!-- 展示左側導航區 -->
             <!-- 滾動元件 -->
             <el-scrollbar class="scrollbar">
@@ -15,17 +15,6 @@
                         <Menu :menuList="userStore.menuRoutes"></Menu>
                     </el-menu>
                 </div>
-                <!-- RWD選單區 -->
-                <section class="mmenu">
-                    <!-- 漢堡圖標 -->
-                    <button id="hamburger-button" class="ham" v-on:click="switchMenu">
-                        <!-- &#9776; -->
-                        <div ref="ham_dash_1" class="ham-dash"></div>
-                        <div ref="ham_dash_2" class="ham-dash"></div>
-                        <div ref="ham_dash_3" class="ham-dash"></div>
-                    </button>
-                    <!-- RWD選單導航區 -->
-                </section>
             </el-scrollbar>
         </div>
         <!-- 頂部導航-右上 -->
@@ -62,26 +51,27 @@ let LayOutSettingStore = useLayOutSettingStore()
 let $route = useRoute()
 // 取得選單DOM節點展示與隱藏
 let elmenu = ref()
-// flag參數控制選單elmenu節點的展示與隱藏
-let isShow = ref(true)
-// 取得漢堡icon節點
-let ham_dash_1 = ref()
-let ham_dash_2 = ref()
-let ham_dash_3 = ref()
+// isShow參數控制選單elmenu節點的展示與隱藏
+let isShow = ref(false)
 
-const switchMenu = () => {
+const showMenu = () => {
     // console.log('elmenu', elmenu);
     isShow.value = !isShow.value
-    isShow.value ? elmenu.value.style.display = 'none' : elmenu.value.style.display = 'block'
-    ham_dash_1.value.classList.toggle('ham-dash-slash')
-    ham_dash_2.value.classList.toggle('ham-dash-middle')
-    ham_dash_3.value.classList.toggle('ham-dash-rev-slash')
-
-    // console.log('ham_dash_1', ham_dash_1);
-    // console.log('ham_dash_3', ham_dash_3.value);
-
+    // 如isShow.value為true,隱藏elemenu;如isShow.value為false,顯示elemenu
+    isShow.value ? elmenu.value.style.display = 'block' : elmenu.value.style.display = 'none'
+    // console.log('我是父元件Layout的showMenu函數');
 }
-
+// 當前網頁顯示區(視口)寬度
+window.onresize = (event) => {
+    // console.log('event', event);
+    // 視口寬大於等於平板寬度以上時，使選單導航節點elmenu第一時間出現
+    if (window.innerWidth >= 997) {
+        elmenu.value.style.display = 'block'
+    } else {
+        // 視口寬低於平板寬度以下時，使選單導航節點elmenu第一時間隱藏
+        elmenu.value.style.display = 'none'
+    }
+}
 </script>
 <script lang="ts">
 export default {
@@ -206,62 +196,6 @@ export default {
             }
 
         }
-    }
-}
-
-.mmenu {
-    // background-color: yellow;
-    max-width: 56rem;
-    height: 100%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: row;
-    // 彈性單元當前主軸對齊
-    justify-content: center;
-    // 彈性單元當前側軸對齊
-    align-items: center;
-    transition: all 1s;
-
-    .ham {
-        background-color: transparent;
-        width: 100%;
-        height: 100%;
-        // margin: 0px auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-        padding: 5px;
-        border: none;
-        cursor: pointer;
-
-        // 在視口寬度996px及以上時，漢堡icon隱藏
-        @media only screen and (min-width: 996px) {
-            transition: all 1s;
-            display: none;
-        }
-
-        .ham-dash {
-            background-color: white;
-            width: 30px;
-            height: 6px;
-            border-radius: 10px;
-            margin: 3px 15px;
-            transition: all 1s;
-        }
-
-        .ham-dash-slash {
-            transform: translateY(6px) rotateZ(405deg);
-        }
-
-        .ham-dash-middle{
-            display: none;
-        }
-
-        .ham-dash-rev-slash {
-            transform: translateY(-6px) rotateZ(-405deg);
-        }
-
     }
 }
 </style>
