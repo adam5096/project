@@ -1,9 +1,10 @@
 <template>
     <div class="logo" v-if="setting.logoHidden">
+
         <!-- RWD選單區 -->
-        <section class="mmenu">
+        <section class="mmenu" v-on:click="showAni">
             <!-- 漢堡圖標 -->
-            <button id="hamburger-button" class="ham" v-on:click="switchMenu, showMenu()">
+            <button id="hamburger-button" class="ham" v-on:click="showMenu()">
                 <div ref="ham_dash_1" class="ham-dash"></div>
                 <div ref="ham_dash_2" class="ham-dash"></div>
                 <div ref="ham_dash_3" class="ham-dash"></div>
@@ -27,13 +28,22 @@ let ham_dash_1 = ref()
 let ham_dash_2 = ref()
 let ham_dash_3 = ref()
 
-const switchMenu = () => {
+const showAni = () => {
     // console.log('elmenu', elmenu);
     ham_dash_1.value.classList.toggle('ham-dash-slash')
     ham_dash_2.value.classList.toggle('ham-dash-middle')
     ham_dash_3.value.classList.toggle('ham-dash-rev-slash')
-
+    // console.log('我是switchMenu');
 }
+
+// window.onresize = () => {
+//     if (window.innerWidth >= 997) {
+//         elmenu.value.style.display = 'block'
+//     } else {
+//         // 視口寬低於平板寬度以下時，使選單導航節點elmenu第一時間隱藏
+//         elmenu.value.style.display = 'none'
+//     }
+// }
 </script>
 <script lang="ts">
 export default {
@@ -64,7 +74,7 @@ export default {
 // 漢堡圖標
 .mmenu {
     // background-color: chocolate;
-    width: 25px;
+    width: 30px;
     height: $base-menu-logo-height;
     display: flex;
     flex-direction: row;
@@ -94,25 +104,31 @@ export default {
 
         .ham-dash {
             background-color: white;
-            width: 25px;
-            height: 4px;
+            width: 30px;
+            height: 2px;
             border-radius: 10px;
-            margin: 3px 15px;
-            transition: all 1s;
+            margin: 4px;
+            transition: all 0.7s;
         }
 
-        .ham-dash-slash {
-            transform: translateY(6px) rotateZ(405deg);
-        }
 
-        .ham-dash-middle {
-            display: none;
-        }
 
-        .ham-dash-rev-slash {
-            transform: translateY(-6px) rotateZ(-405deg);
-        }
+    }
 
+    .ham-dash-slash {
+        transform: translateY(6px) rotateZ(405deg);
+        // height: 8px;
+        padding: 2px;
+    }
+
+    .ham-dash-middle {
+        display: none;
+    }
+
+    .ham-dash-rev-slash {
+        transform: translateY(-6px) rotateZ(-405deg);
+        // height: 8px;
+        padding: 2px;
     }
 }
 </style>

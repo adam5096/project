@@ -3,7 +3,7 @@
         <!-- 左側導航 -->
         <div class="layout_slider">
             <!-- 左側導航頂端logo -->
-            <Logo :showMenu="showMenu"></Logo>
+                <Logo :showMenu="showMenu"></Logo>
             <!-- 展示左側導航區 -->
             <!-- 滾動元件 -->
             <el-scrollbar class="scrollbar">
@@ -62,7 +62,7 @@ const showMenu = () => {
     // console.log('我是父元件Layout的showMenu函數');
 }
 // 當前網頁顯示區(視口)寬度
-window.onresize = (event) => {
+window.onresize = () => {
     // console.log('event', event);
     // 視口寬大於等於平板寬度以上時，使選單導航節點elmenu第一時間出現
     if (window.innerWidth >= 997) {
