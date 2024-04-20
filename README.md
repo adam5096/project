@@ -4,12 +4,12 @@
 
 # 🔧使用編輯器/語言/其他依賴
 💻編輯器  
-* Visual Studio Code
+>Visual Studio Code
 
-📝使用語言
-* Html
-* CSS
-* TypeScript
+📝使用語言  
+>Html  
+>CSS  
+>TypeScript
 
 🪜其他依賴
 ```
