@@ -1,5 +1,5 @@
 # 💻後台SPA
-# 🔗[點我觀看教材影片](https://www.youtube.com/playlist?list=PLmOn9nNkQxJECrx-JlaaJaC2gthMP7B7r)
+# 🔗[原作者+參考資料來源](https://www.youtube.com/playlist?list=PLmOn9nNkQxJECrx-JlaaJaC2gthMP7B7r)
 **🚫本專案為自主練習使用，請勿挪為商業用途🚫**
 
 # 🔧使用編輯器/語言/其他依賴
